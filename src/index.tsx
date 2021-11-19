@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter} from "react-router-dom";
+import AppRoutes from "./config/router/AppRoutes";
+import {QueryClient, QueryClientProvider} from "react-query";
+
+const queryClient = new QueryClient();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <AppRoutes></AppRoutes>
+      </QueryClientProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
